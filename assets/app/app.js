@@ -25,7 +25,7 @@ function fetchCountries() {
 }
 
 function getShowCountries(data) {
-  return ` <a class="cntr-box-link" href="details.html?postId=${data.name.common}">
+  return ` <a class="cntr-box-link" href="details.html?name=${data.name.common}">
     <div class="country-box">
         <div class="country-box__flag">
             <img src="${data.flags.png}" alt="">
@@ -61,7 +61,7 @@ const names = document.getElementsByClassName("names");
 
 searchInput.addEventListener("input", function () {
   Array.from(names).forEach((elem) => {
-    if (elem.innerText.includes(searchInput.value)) {
+    if (elem.innerText.toLowerCase().includes(searchInput.value.toLowerCase())) {
       elem.parentElement.parentElement.parentElement.style.display = "block";
     } else {
       elem.parentElement.parentElement.parentElement.style.display = "none";

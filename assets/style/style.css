@@ -308,3 +308,17 @@ main {
 .main-content__items_right {
     margin-top: 54px;
 }
+
+.border-countries {
+  margin-top: 50px;
+
+
+}
+
+.border-countries span {
+  border: 1px solid #fff;
+
+  display: inline-block;
+  padding:5px 20px;
+}
+
