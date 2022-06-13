@@ -163,8 +163,7 @@ main {
   height: 160px;
 }
 
-.country-box__items {
-}
+
 .country-box__flag img {
   width: 100%;
   height: 100%;
@@ -206,8 +205,7 @@ main {
   .container {
     width: 1200px;
   }
-  .countries_wrapper {
-  }
+ 
 }
 
 @media (max-width: 1200px) {
