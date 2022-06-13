@@ -21,6 +21,7 @@ function fetchCountries() {
         html += getShowCountries(data[i]);
       }
       countriesWrapper.insertAdjacentHTML("afterbegin", html);
+      
     });
 }
 
