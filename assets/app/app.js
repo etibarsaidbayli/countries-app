@@ -14,7 +14,7 @@ fetchCountries();
 
 function fetchCountries() {
   fetch("https://restcountries.com/v3.1/all")
-    .then((response) => response.json())  
+    .then((response) => response.json())
     .then((data) => {
       let html = "";
       for (let i = 0; i < data.length; i++) {
@@ -61,7 +61,9 @@ const names = document.getElementsByClassName("names");
 
 searchInput.addEventListener("input", function () {
   Array.from(names).forEach((elem) => {
-    if (elem.innerText.toLowerCase().includes(searchInput.value.toLowerCase())) {
+    if (
+      elem.innerText.toLowerCase().includes(searchInput.value.toLowerCase())
+    ) {
       elem.parentElement.parentElement.parentElement.style.display = "block";
     } else {
       elem.parentElement.parentElement.parentElement.style.display = "none";

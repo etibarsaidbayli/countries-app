@@ -3,7 +3,6 @@ const backWrapEnd = document.querySelector(".back");
 detailsFetch();
 
 function detailsFetch() {
-    
   const url = new URL(location.href);
 
   if (url.searchParams.has("name")) {
@@ -12,7 +11,7 @@ function detailsFetch() {
       .then((response) => response.json())
       .then((data) => {
         backWrapEnd.insertAdjacentHTML("afterend", detailsHtml(data[0]));
-        // console.log(data[0])
+       
       });
   } else {
     location.href = "index.html";
@@ -31,10 +30,7 @@ function detailsHtml(data) {
     data.languages = `<span>no languages</span>`;
   }
 
-  
-
   let borders = data.borders.map((a) => `<span>${a}</span>`);
-
 
   let currencies = Object.keys(data.currencies).join(", ");
   let languages = Object.keys(data.languages).join(", ");
