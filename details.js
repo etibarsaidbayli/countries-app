@@ -58,3 +58,37 @@ function detailsHtml(data) {
     </div>
 </div>`;
 }
+
+
+const darkModeBtn= document.querySelector('.dark-mode')
+let darkModeTxt=document.getElementById('darkModeTxt')
+
+darkModeBtn.addEventListener('click',getTransformMode)
+let mode='light'
+const modePic=document.getElementById('modePic')
+
+function lightModeOn () {
+  modePic.src='assets/img/icon-sun.svg'
+  darkModeTxt.textContent='Light Mode'
+}
+
+function darkModeOn () {
+  modePic.src='assets/img/sun light mode.svg'
+  darkModeTxt.textContent='Dark Mode'
+}
+
+
+function getTransformMode () {
+  document.body.classList.toggle('dark')
+  // ??????????/
+  if(mode==="light") {
+  
+    lightModeOn  ()
+    mode='dark'
+  }
+  else {
+   
+    darkModeOn   ()
+    mode='light'
+  }
+}

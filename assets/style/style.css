@@ -40,7 +40,10 @@ header {
 .dark-mode {
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
+
+
 
 .dark-mode img {
   margin-right: 8px;
@@ -52,6 +55,8 @@ header {
   font-size: 16px;
   line-height: 22px;
   color: var(--color2);
+  color:#000;
+
 }
 
 .header-title__title {
@@ -79,6 +84,11 @@ main {
   display: flex;
   width: 480px;
   align-items: center;
+  
+}
+.dark #serachInput  {
+  color:#fff;
+  border: 1px solid #fff;
 }
 
 .search form {
@@ -103,8 +113,24 @@ main {
   padding-right: 15px;
 }
 
+.dark .filter__region {
+  border:1px dashed #fff;
+  
+}
+
+.dark .filter__region p {
+  color:#fff;
+}
+
+.dark .filter__content {
+  background: lightgrey;
+ :
+}
+
+
+
 .filter__region {
-  padding: 20px 0;
+  padding: 20px 10px;
 }
 .filter__region p {
   font-style: normal;
@@ -114,7 +140,7 @@ main {
 }
 
 .filter__content {
-  padding: 5px 0;
+  padding: 5px 10px;
   display: none;
 }
 
@@ -155,10 +181,10 @@ main {
   padding-bottom: 40px;
   margin-right: 30px;
   margin-top: 30px;
+  
 }
 
 .country-box__flag {
-  /* max-width: 265px; */
   width: 260px;
   height: 160px;
 }
@@ -238,8 +264,11 @@ main {
 }
 
 .dark {
-  background: var(--bgColor1);
-  color: var(--color1);
+ background-color: black;
+ color: #fff;
+}
+.dark strong {
+  color:#fff
 }
 
 /* details */
@@ -298,8 +327,9 @@ main {
 }
 
 .border-countries span {
-  border: 1px solid #fff;
+  border: 1px solid #000;
 
   display: inline-block;
-  padding: 5px 20px;
+  padding: 5px 15px;
+
 }
