@@ -76,33 +76,65 @@ searchInput.addEventListener("input", function () {
 
 
 
-darkModeBtn.addEventListener('click',getTransformMode)
-let mode='light'
+
+
+
+// darkModeBtn.addEventListener('click',getTransformMode)
+// let mode='light'
+
+
+// function lightModeOn () {
+//   modePic.src='assets/img/icon-sun.svg'
+//   darkModeTxt.textContent='Light Mode'
+// }
+
+// function darkModeOn () {
+//   modePic.src='assets/img/sun light mode.svg'
+//   darkModeTxt.textContent='Dark Mode'
+// }
+
+
+// function getTransformMode () {
+//   document.body.classList.toggle('dark')
+//   document.querySelector('.search').classList.toggle('dark')
+//   document.querySelector('.filter').classList.toggle('dark')
+//   if(mode==="light") {
+  
+//     lightModeOn  ()
+//     mode='dark'
+//   }
+//   else {
+   
+//     darkModeOn   ()
+//     mode='light'
+//   }
+// }
+
 const modePic=document.getElementById('modePic')
 
-function lightModeOn () {
-  modePic.src='assets/img/icon-sun.svg'
-  darkModeTxt.textContent='Light Mode'
-}
+let html=document.getElementById('html')
+let theme=false
 
-function darkModeOn () {
+darkModeBtn.addEventListener('click',function () {
+    if(!theme) {
+      lightMode()
+      theme=true
+    } else{
+      darkMode()
+      theme=false
+    }
+})
+
+
+
+function lightMode() {
   modePic.src='assets/img/sun light mode.svg'
-  darkModeTxt.textContent='Dark Mode'
+  html.setAttribute('data-theme','light')
+  darkModeTxt.textContent='Light Mode '
 }
 
-
-function getTransformMode () {
-  document.body.classList.toggle('dark')
-  document.querySelector('.search').classList.toggle('dark')
-  document.querySelector('.filter').classList.toggle('dark')
-  if(mode==="light") {
-  
-    lightModeOn  ()
-    mode='dark'
-  }
-  else {
-   
-    darkModeOn   ()
-    mode='light'
-  }
+function darkMode () {
+  modePic.src='assets/img/icon-moon.svg'
+  html.setAttribute('data-theme','dark')
+  darkModeTxt.textContent='Dark Mode'
 }

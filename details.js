@@ -48,7 +48,7 @@ function detailsHtml(data) {
             <p class="items">Region:<span>${data.region}</span></p>
             <p class="items">Sub Region :<span>${data.subregion}</span></p>
             <p class="items">Capital:<span>${data.capital}</span></p>
-            <p class="items border-countries">Border Countries:${borders}</p>
+            <p class="items border-countries">Border Countries:${borders.join('')}</p>
         </div>
         <div class="main-content__items_right">
             <p class="items">Top Level Domain:</p>
@@ -63,32 +63,31 @@ function detailsHtml(data) {
 const darkModeBtn= document.querySelector('.dark-mode')
 let darkModeTxt=document.getElementById('darkModeTxt')
 
-darkModeBtn.addEventListener('click',getTransformMode)
-let mode='light'
 const modePic=document.getElementById('modePic')
 
-function lightModeOn () {
-  modePic.src='assets/img/icon-sun.svg'
-  darkModeTxt.textContent='Light Mode'
-}
+let html=document.getElementById('html')
+let theme=false
 
-function darkModeOn () {
+darkModeBtn.addEventListener('click',function () {
+    if(!theme) {
+      lightMode()
+      theme=true
+    } else{
+      darkMode()
+      theme=false
+    }
+})
+
+
+
+function lightMode() {
   modePic.src='assets/img/sun light mode.svg'
-  darkModeTxt.textContent='Dark Mode'
+  html.setAttribute('data-theme','light')
+  darkModeTxt.textContent='Light Mode '
 }
 
-
-function getTransformMode () {
-  document.body.classList.toggle('dark')
-  // ??????????/
-  if(mode==="light") {
-  
-    lightModeOn  ()
-    mode='dark'
-  }
-  else {
-   
-    darkModeOn   ()
-    mode='light'
-  }
+function darkMode () {
+  modePic.src='assets/img/icon-moon.svg'
+  html.setAttribute('data-theme','dark')
+  darkModeTxt.textContent='Dark Mode'
 }
