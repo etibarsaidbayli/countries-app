@@ -1,5 +1,5 @@
 const backWrapEnd = document.querySelector(".back");
-
+let load=document.querySelector('.loading')
 detailsFetch();
 
 function detailsFetch() {
@@ -11,7 +11,7 @@ function detailsFetch() {
       .then((response) => response.json())
       .then((data) => {
         backWrapEnd.insertAdjacentHTML("afterend", detailsHtml(data[0]));
-       
+        // load.style.display='none'
       });
   } else {
     location.href = "index.html";
@@ -68,6 +68,8 @@ const modePic=document.getElementById('modePic')
 let html=document.getElementById('html')
 let theme=false
 
+
+
 darkModeBtn.addEventListener('click',function () {
     if(!theme) {
       lightMode()
@@ -81,6 +83,7 @@ darkModeBtn.addEventListener('click',function () {
 
 
 function lightMode() {
+
   modePic.src='assets/img/sun light mode.svg'
   html.setAttribute('data-theme','light')
   darkModeTxt.textContent='Light Mode '

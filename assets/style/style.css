@@ -6,32 +6,17 @@
   box-sizing: border-box;
 }
 
-/* html {
-  --bgColor1: #000;
-  --color1: #fff;
-  --bgColor2: #fff;
-  --color2: #000;
-}
 
 html[data-theme="dark"] {
- 
-  background: var(--bgColor1);
-  color:var(--color1)
-}
-
-html[data-theme="light"] {  
-  background: var(--bgColor2);
-  color:var(--color2)
-} */
-
-html[data-theme="dark"] {
-  --bgColor1: #000;
+  --bgColor1: #202C36;
   --color1: #fff;
+  --bgBoxColor1:#808080;
 }
 
 html[data-theme="light"] {
-  --bgColor1: #fff;
+  --bgColor1: #F2F2F2;
   --color1: #000;
+  --bgBoxColor1:#fff;
 }
 
 body {
@@ -118,11 +103,13 @@ main {
   border: none;
   outline: none;
   background: transparent;
+  color: var(--color1); 
 }
 
 .search i {
   margin-left: 20px;
   font-size: 20px;
+  color: var(--color1);
 }
 
 .filter {
@@ -189,12 +176,13 @@ main {
 }
 
 .country-box {
-  background: var(--bgColor1);
+  background: var(--bgBoxColor1);
   box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.0294384);
   border-radius: 5px;
   padding-bottom: 40px;
   margin-right: 30px;
   margin-top: 30px;
+
 }
 
 .country-box__flag {
@@ -222,7 +210,7 @@ main {
   font-size: 18px;
   line-height: 26px;
   color: var(--color1);
-  max-width: 150px;
+
 }
 
 .items {
@@ -297,7 +285,7 @@ main {
   font-weight: 300;
   font-size: 16px;
   line-height: 20px;
-  color: var(--color2);
+  color: var(--color1);
 
   display: block;
 
@@ -348,4 +336,43 @@ main {
   background-color: var(--bgColor1);
   margin-left: 10px;
   margin-bottom: 5px;
+}
+
+/* animation */ 
+
+.lds-facebook {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-facebook div {
+  display: inline-block;
+  position: absolute;
+  left: 8px;
+  width: 16px;
+  background: #cef;
+  animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+}
+.lds-facebook div:nth-child(1) {
+  left: 8px;
+  animation-delay: -0.24s;
+}
+.lds-facebook div:nth-child(2) {
+  left: 32px;
+  animation-delay: -0.12s;
+}
+.lds-facebook div:nth-child(3) {
+  left: 56px;
+  animation-delay: 0;
+}
+@keyframes lds-facebook {
+  0% {
+    top: 8px;
+    height: 64px;
+  }
+  50%, 100% {
+    top: 24px;
+    height: 32px;
+  }
 }
