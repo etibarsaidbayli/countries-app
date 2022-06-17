@@ -1,5 +1,5 @@
 const backWrapEnd = document.querySelector(".back");
-let idsFacebook = document.querySelector(".lds-facebook");
+let load=document.querySelector('.loading')
 detailsFetch();
 
 function detailsFetch() {
@@ -11,7 +11,7 @@ function detailsFetch() {
       .then((response) => response.json())
       .then((data) => {
         backWrapEnd.insertAdjacentHTML("afterend", detailsHtml(data[0]));
-        idsFacebook.style.display = "none";
+        // load.style.display='none'
       });
   } else {
     location.href = "index.html";
@@ -41,18 +41,14 @@ function detailsHtml(data) {
     <div class="main-content__items">
 
         <div class="main-content__items_left">
-            <h2 class="country-box__name_title details__name_title">${
-              data.name.common
-            }</h2>
+            <h2 class="country-box__name_title details__name_title">${data.name.common}</h2>
 
             <p class="items">Native Name:<span>${data.name.official}</span></p>
             <p class="items">Population:<span>${data.population}</span></p>
             <p class="items">Region:<span>${data.region}</span></p>
             <p class="items">Sub Region :<span>${data.subregion}</span></p>
             <p class="items">Capital:<span>${data.capital}</span></p>
-            <p class="items border-countries">Border Countries:${borders.join(
-              ""
-            )}</p>
+            <p class="items border-countries">Border Countries:${borders.join('')}</p>
         </div>
         <div class="main-content__items_right">
             <p class="items">Top Level Domain:</p>
@@ -63,32 +59,38 @@ function detailsHtml(data) {
 </div>`;
 }
 
-const darkModeBtn = document.querySelector(".dark-mode");
-let darkModeTxt = document.getElementById("darkModeTxt");
 
-const modePic = document.getElementById("modePic");
+const darkModeBtn= document.querySelector('.dark-mode')
+let darkModeTxt=document.getElementById('darkModeTxt')
 
-let html = document.getElementById("html");
-let theme = false;
+const modePic=document.getElementById('modePic')
 
-darkModeBtn.addEventListener("click", function () {
-  if (!theme) {
-    lightMode();
-    theme = true;
-  } else {
-    darkMode();
-    theme = false;
-  }
-});
+let html=document.getElementById('html')
+let theme=false
+
+
+
+darkModeBtn.addEventListener('click',function () {
+    if(!theme) {
+      lightMode()
+      theme=true
+    } else{
+      darkMode()
+      theme=false
+    }
+})
+
+
 
 function lightMode() {
-  modePic.src = "assets/img/sun light mode.svg";
-  html.setAttribute("data-theme", "light");
-  darkModeTxt.textContent = "Light Mode ";
+
+  modePic.src='assets/img/sun light mode.svg'
+  html.setAttribute('data-theme','light')
+  darkModeTxt.textContent='Light Mode '
 }
 
-function darkMode() {
-  modePic.src = "assets/img/icon-moon.svg";
-  html.setAttribute("data-theme", "dark");
-  darkModeTxt.textContent = "Dark Mode";
+function darkMode () {
+  modePic.src='assets/img/icon-moon.svg'
+  html.setAttribute('data-theme','dark')
+  darkModeTxt.textContent='Dark Mode'
 }

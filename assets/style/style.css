@@ -6,17 +6,16 @@
   box-sizing: border-box;
 }
 
-
 html[data-theme="dark"] {
-  --bgColor1: #202C36;
+  --bgColor1: #202c36;
   --color1: #fff;
-  --bgBoxColor1:#808080;
+  --bgBoxColor1: #808080;
 }
 
 html[data-theme="light"] {
-  --bgColor1: #F2F2F2;
+  --bgColor1: #f2f2f2;
   --color1: #000;
-  --bgBoxColor1:#fff;
+  --bgBoxColor1: #fff;
 }
 
 body {
@@ -103,7 +102,7 @@ main {
   border: none;
   outline: none;
   background: transparent;
-  color: var(--color1); 
+  color: var(--color1);
 }
 
 .search i {
@@ -182,7 +181,6 @@ main {
   padding-bottom: 40px;
   margin-right: 30px;
   margin-top: 30px;
-
 }
 
 .country-box__flag {
@@ -210,7 +208,6 @@ main {
   font-size: 18px;
   line-height: 26px;
   color: var(--color1);
-
 }
 
 .items {
@@ -338,7 +335,7 @@ main {
   margin-bottom: 5px;
 }
 
-/* animation */ 
+/* animation */
 
 .lds-facebook {
   display: inline-block;
@@ -371,7 +368,8 @@ main {
     top: 8px;
     height: 64px;
   }
-  50%, 100% {
+  50%,
+  100% {
     top: 24px;
     height: 32px;
   }
