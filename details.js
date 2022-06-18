@@ -71,13 +71,20 @@ const modePic = document.getElementById("modePic");
 let html = document.getElementById("html");
 let theme = false;
 
+if (localStorage.getItem("dark-mode")) {
+  darkMode();
+} else if (localStorage.getItem("light-mode")) {
+  lightMode();
+}
 darkModeBtn.addEventListener("click", function () {
   if (!theme) {
-    lightMode();
-    theme = true;
-  } else {
     darkMode();
+    theme = true;
+    localStorage.removeItem("light-mode");
+  } else {
+    lightMode();
     theme = false;
+    localStorage.removeItem("dark-mode");
   }
 });
 
@@ -85,10 +92,12 @@ function lightMode() {
   modePic.src = "assets/img/sun light mode.svg";
   html.setAttribute("data-theme", "light");
   darkModeTxt.textContent = "Light Mode ";
+  localStorage.setItem("light-mode", "light");
 }
 
 function darkMode() {
   modePic.src = "assets/img/icon-moon.svg";
   html.setAttribute("data-theme", "dark");
   darkModeTxt.textContent = "Dark Mode";
+  localStorage.setItem("dark-mode", "dark");
 }

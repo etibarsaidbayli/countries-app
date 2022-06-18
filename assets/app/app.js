@@ -8,9 +8,19 @@ const headerTitle = document.querySelector(".header-title__title");
 const darkModeBtn = document.querySelector(".dark-mode");
 let darkModeTxt = document.getElementById("darkModeTxt");
 let idsFacebook = document.querySelector(".lds-facebook");
+
+const modePic = document.getElementById("modePic");
+let html = document.getElementById("html");
+
 toggleFilter.addEventListener("click", function () {
   filterContent.classList.toggle("toggleFilterContent");
 });
+
+if (localStorage.getItem("dark-mode")) {
+  darkMode();
+} else if (localStorage.getItem("light-mode")) {
+  lightMode();
+}
 
 fetchCountries();
 
@@ -82,20 +92,31 @@ searchInput.addEventListener("input", function () {
   });
 });
 
-const modePic = document.getElementById("modePic");
-
-let html = document.getElementById("html");
 let theme = false;
+
+// darkModeBtn.addEventListener("click", function () {
+//   if (!theme) {
+//     lightMode();
+//     theme = true;
+//     localStorage.removeItem('dark-mode')
+
+//   } else {
+//     darkMode();
+//     theme = false;
+//     localStorage.removeItem('light-mode')
+
+//   }
+// });
 
 darkModeBtn.addEventListener("click", function () {
   if (!theme) {
-    lightMode();
-    theme = true;
-    localStorage.setItem("dark-mode", "dark");
-  } else {
     darkMode();
+    theme = true;
+    localStorage.removeItem("light-mode");
+  } else {
+    lightMode();
     theme = false;
-    localStorage.setItem("light-mode", "light");
+    localStorage.removeItem("dark-mode");
   }
 });
 
@@ -103,10 +124,12 @@ function lightMode() {
   modePic.src = "assets/img/sun light mode.svg";
   html.setAttribute("data-theme", "light");
   darkModeTxt.textContent = "Light Mode ";
+  localStorage.setItem("light-mode", "light");
 }
 
 function darkMode() {
   modePic.src = "assets/img/icon-moon.svg";
   html.setAttribute("data-theme", "dark");
   darkModeTxt.textContent = "Dark Mode";
+  localStorage.setItem("dark-mode", "dark");
 }
